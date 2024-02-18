@@ -1,0 +1,1 @@
+docker run -d --name ubuntu-container -p 8080:8080 -v /Users/berat/Desktop/tez/api_build/build:/var/tez/build --network my_network ubuntu20 

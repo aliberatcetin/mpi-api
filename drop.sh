@@ -1,0 +1,1 @@
+docker exec -it -w  /var/tez --env COLUMNS=`tput cols` --env LINES=`tput lines` ubuntu-container bash
