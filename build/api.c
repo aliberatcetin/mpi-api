@@ -69,7 +69,7 @@ int callback_post (const struct _u_request * request, struct _u_response * respo
 
 int main(void) {
     struct _u_instance instance;
-    SERVER_HOST = getenv("GRAPH_MASTER_IP")
+    SERVER_HOST = getenv("GRAPH_MASTER_IP");
     if (ulfius_init_instance(&instance, PORT, NULL, NULL) != U_OK) {
         fprintf(stderr, "Error ulfius_init_instance, abort\n");
         return(1);
