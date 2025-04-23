@@ -7,9 +7,9 @@
 #include <unistd.h>
 
 #define PORT 8080
-#define SERVER_HOST "172.19.0.2"
 #define SERVER_PORT 9000
 
+const char* SERVER_HOST = getenv("GRAPH_MASTER_IP");
 
 
 void send_to_mpi(const char *data) {
@@ -77,10 +77,11 @@ int main(void) {
 
     ulfius_add_endpoint_by_val(&instance, "GET", "/helloworld", NULL, 0, &callback_hello_world, NULL);
     ulfius_add_endpoint_by_val(&instance, "POST", "/api", NULL, 0, &callback_post, NULL);
+    ulfius_add_endpoint_by_val(&instance, "POST", "/api/terminate", NULL, 0, &callback_post, NULL);
+
 
     if (ulfius_start_framework(&instance) == U_OK) {
-        printf("Start framework on port %d\n", instance.port);
-
+        printf("Start framework on port %d target mpi ip : %s\n", instance.port,SERVER_HOST);
         getchar(); // Wait for user input to terminate the server
     } else {
         fprintf(stderr, "Error starting framework\n");
