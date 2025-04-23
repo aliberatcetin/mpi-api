@@ -9,7 +9,7 @@
 #define PORT 8080
 #define SERVER_PORT 9000
 
-const char* SERVER_HOST = getenv("GRAPH_MASTER_IP");
+char* SERVER_HOST;
 
 
 void send_to_mpi(const char *data) {
@@ -69,7 +69,7 @@ int callback_post (const struct _u_request * request, struct _u_response * respo
 
 int main(void) {
     struct _u_instance instance;
-
+    SERVER_HOST = getenv("GRAPH_MASTER_IP")
     if (ulfius_init_instance(&instance, PORT, NULL, NULL) != U_OK) {
         fprintf(stderr, "Error ulfius_init_instance, abort\n");
         return(1);
