@@ -82,8 +82,8 @@ int main(void) {
 
     if (ulfius_start_framework(&instance) == U_OK) {
         printf("Start framework on port %d target mpi ip : %s\n", instance.port,SERVER_HOST);
-        while(true){
-            
+        while(1){
+
         }
     } else {
         fprintf(stderr, "Error starting framework\n");
